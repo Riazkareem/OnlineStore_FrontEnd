@@ -23,14 +23,15 @@ function Header() {
     <section className="bg-[#1e2d7d]">
       <Modal visible={show} closeModel={closeModel} />
       <div className="container mx-auto py-5 bg-[#1e2d7d]">
-        <div className="grid grid-cols-3 gap-4 max-[639px]:block">
-          <div className="text-center max-[639px]:mb-5">
+        <div className="grid grid-cols-3 items-center gap-4 max-[639px]:block">
+          <div className="min-[320px]:flex max-[639px]:justify-center max-[639px]:mb-5">
             <Link href={"/"}>
               <Image
                 src={"/img/logo.webp"}
                 width={200}
                 height={100}
                 alt="logo"
+                className="mobile:w-full mobile:z-50"
               />
             </Link>
           </div>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 function Navbar() {
   const router = useRouter();
@@ -11,21 +12,22 @@ function Navbar() {
       return "";
     }
   };
+
   return (
     <section>
       <div className="container-fluid">
-        <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 shadow">
-          <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
+        <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 shadow ">
+          <div className="max-[639px]:absolute max-[639px]:top-2  flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
             <button
               id="mega-menu-full-cta-button"
               data-collapse-toggle="mega-menu-full-cta"
               type="button"
-              className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 bg-gray-300"
               aria-controls="mega-menu-full-cta"
               aria-expanded="false"
             >
               <svg
-                className="w-6 h-6"
+                className="w-6 h-6 text-white max-[639px]:bg-blue-500"
                 aria-hidden="true"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -40,14 +42,14 @@ function Navbar() {
             </button>
             <div
               id="mega-menu-full-cta"
-              className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
+              className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1 bg-white"
             >
               <ul className="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-2 font-nunito-600 text-md">
                 <li>
                   <Link
                     href={"/"}
                     className={
-                      "hover:text-white hover:bg-[#2557D6] px-2 hover:py-1" +
+                      "hover:text-white hover:bg-[#2557D6] px-2 hover:py-1 " +
                       isActive("/")
                     }
                     aria-current="page"
@@ -59,7 +61,7 @@ function Navbar() {
                   <Link
                     href={"/products"}
                     className={
-                      "hover:text-white hover:bg-[#2557D6] px-2 hover:py-1" +
+                      "hover:text-white hover:bg-[#2557D6] px-2 hover:py-1 " +
                       isActive("/products")
                     }
                     aria-current="page"
@@ -72,7 +74,27 @@ function Navbar() {
                     id="mega-menu-full-cta-dropdown-button"
                     data-collapse-toggle="mega-menu-full-cta-dropdown"
                     data-dropdown-placement="bottom"
-                    className="peer flex items-center hover:text-white hover:bg-[#2557D6] px-2 hover:py-1"
+                    className="peer flex items-center hover:text-white hover:bg-[#2557D6] px-2 "
+                  >
+                    Home & Hardware
+                    <svg
+                      className="ml-1 w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                  <button
+                    id="mega-menu-full-cta-dropdown-button"
+                    data-collapse-toggle="mega-menu-full-cta-dropdown"
+                    data-dropdown-placement="bottom"
+                    className="show_on_mobile md:hidden items-center hover:text-white hover:bg-[#2557D6] px-2"
                   >
                     Home & Hardware
                     <svg
@@ -90,7 +112,7 @@ function Navbar() {
                   </button>
                   <div
                     id="mega-menu-full-cta-dropdown"
-                    className="hidden peer-hover:flex hover:block absolute top-30 right-12 mt-0 bg-white border-gray-200 drop-shadow-lg border-y dark:bg-gray-800 dark:border-gray-600 overflow-y-auto h-1/2 min-[320px]:right-3 min-[320px]:left-3 z-50"
+                    className="hidden peer-hover:flex hover:block absolute top-30 right-12 mt-0 bg-white border-gray-200 drop-shadow-lg border-y dark:bg-gray-800 dark:border-gray-600 overflow-y-auto h-1/2 mobile:right-3 mobile:left-3 mobile:h-96 mobile:z-50"
                   >
                     <div className="grid py-5 px-4 mx-auto max-w-screen-xl text-sm text-gray-500 dark:text-gray-400 md:grid-cols-3 md:px-6">
                       <ul className="space-y-4 sm:mb-4 md:mb-0">
@@ -199,30 +221,18 @@ function Navbar() {
                     </div>
                   </div>
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white hover:bg-[#2557D6] px-2 hover:py-1"
-                  >
-                    Marketplace
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white hover:bg-[#2557D6] px-2 hover:py-1"
-                  >
-                    Resources
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white hover:bg-[#2557D6] px-2 hover:py-1"
-                  >
-                    Contact
-                  </a>
-                </li>
+                <style jsx>
+                  {`
+                    @media only screen and (min-width: 320px) and (max-width: 480px) {
+                      .show_on_mobile {
+                        display: flex;
+                      }
+                      .peer {
+                        display: none;
+                      }
+                    }
+                  `}
+                </style>
               </ul>
             </div>
           </div>

@@ -13,10 +13,10 @@ module.exports = {
       // colors: {
       //   header_bg: "#1e2d7d",
       // },
-      // screens: {
-      //   sm: "375px",
-      //   // => @media (min-width: 640px) { ... }
-      // },
+      screens: {
+        mobile: "320px",
+        // => @media (min-width: 640px) { ... }
+      },
     },
   },
   plugins: [],

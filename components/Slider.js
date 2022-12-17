@@ -1,45 +1,52 @@
 import React from "react";
+import Image from "next/image";
 
 function Slider() {
   return (
     <section>
-      <div id="default-carousel" className="relative" data-carousel="static">
-        <div className="relative h-96 overflow-hidden">
+      <div id="controls-carousel" className="relative" data-carousel="static">
+        {/* <div className="relative h-80 overflow-hidden shadow-md md:h-screen"> */}
+        <div className="relative h-56 overflow-hidden md:h-96">
+          {/* <div className="hidden duration-700 ease-in-out" data-carousel-item>
+            <img
+              src="/img/slider1.webp"
+              className="object-cover w-full lg:h-full"
+              alt="..."
+            />
+          </div> */}
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="/img/slider1.webp" className="" alt="slider image" />
+            <Image
+              src={"/img/slider1.webp"}
+              alt="slider image"
+              layout="fill" // required
+              // width={1500} // required
+              // height={1500} // required
+              className="object-fit h-full w-full"
+            />
           </div>
+
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="/img/slider2.webp" className="" alt="slider image" />
+            <Image
+              src={"/img/slider2.webp"}
+              alt="slider image"
+              layout="fill" // required
+              // width={1500} // required
+              // height={1500} // required
+              className="object-fit h-full w-full"
+            />
           </div>
+
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="/img/slider1.webp" className="" alt="slider image " />
+            <Image
+              src={"/img/slider1.webp"}
+              alt="slider image"
+              layout="fill" // required
+              // width={1500} // required
+              // height={1500} // required
+              className="object-fit h-full w-full"
+            />
           </div>
         </div>
-
-        <div className="">
-          <button
-            type="button"
-            className="w-3 h-3 rounded-full"
-            aria-current="false"
-            aria-label="Slide 1"
-            data-carousel-slide-to="0"
-          ></button>
-          <button
-            type="button"
-            className="w-3 h-3 rounded-full"
-            aria-current="false"
-            aria-label="Slide 2"
-            data-carousel-slide-to="1"
-          ></button>
-          <button
-            type="button"
-            className="w-3 h-3 rounded-full"
-            aria-current="false"
-            aria-label="Slide 3"
-            data-carousel-slide-to="2"
-          ></button>
-        </div>
-
         <button
           type="button"
           className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
