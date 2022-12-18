@@ -17,6 +17,9 @@ module.exports = {
         mobile: "320px",
         // => @media (min-width: 640px) { ... }
       },
+      // animation: {
+      //   spinslow: "spin 3s linear infinite",
+      // },
     },
   },
   plugins: [],

@@ -4,6 +4,46 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 function Navbar() {
+  // category 1 link
+  const category1_navLinks = [
+    { name: "Home", path: "/" },
+    {
+      name: "About Us",
+      path: "/about",
+    },
+    {
+      name: "Services",
+      path: "/services",
+    },
+    {
+      name: "Blog",
+      path: "/blog",
+    },
+    {
+      name: "Contact Us",
+      path: "#contact",
+    },
+  ];
+  // category 1 link
+  const category2_navLinks = [
+    { name: "Home", path: "/" },
+    {
+      name: "About Us",
+      path: "/about",
+    },
+    {
+      name: "Services",
+      path: "/services",
+    },
+    {
+      name: "Blog",
+      path: "/blog",
+    },
+    {
+      name: "Contact Us",
+      path: "#contact",
+    },
+  ];
   const router = useRouter();
   // it put active class to current page or nav element
   const isActive = (r) => {
@@ -16,7 +56,7 @@ function Navbar() {
 
   // it hides the dropdown menu
   const [show, setShow] = useState(true);
-  function closeModel() {
+  function closeDropdownItems() {
     setShow(false);
     setTimeout(() => {
       setShow(true);
@@ -128,42 +168,39 @@ function Navbar() {
                       <div className="grid py-5 px-4 mx-auto max-w-screen-xl text-sm text-gray-500 dark:text-gray-400 md:grid-cols-3 md:px-6">
                         <ul className="space-y-4 sm:mb-4 md:mb-0">
                           <h3 className="font-bold text-xl text-gray-900 text-bold mb-2">
-                            Main Category 1
+                            Category 1
                           </h3>
-                          <li onClick={closeModel}>
-                            <Link
-                              href={"/"}
-                              className="text-base capitalize hover:bg-[#2557D6] hover:px-2 hover:py-1 hover:text-white"
-                            >
-                              category name
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href={"/"}
-                              className="text-base capitalize hover:bg-[#2557D6] hover:px-2 hover:py-1 hover:text-white"
-                            >
-                              category name
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href={"/"}
-                              className="text-base capitalize hover:bg-[#2557D6] hover:px-2 hover:py-1 hover:text-white"
-                            >
-                              category name
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href={"/"}
-                              className="text-base capitalize hover:bg-[#2557D6] hover:px-2 hover:py-1 hover:text-white"
-                            >
-                              category name
-                            </Link>
-                          </li>
+                          {category1_navLinks.map((link, index) => {
+                            return (
+                              <li key={index} onClick={closeDropdownItems}>
+                                <Link
+                                  href={link.path}
+                                  className="text-base capitalize hover:bg-[#2557D6] hover:px-2 hover:py-1 hover:text-white"
+                                >
+                                  {link.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
                         </ul>
-                        <ul className="mb-4 space-y-4 md:mb-0 sm:block">
+                        <ul className="space-y-4 sm:mb-4 md:mb-0">
+                          <h3 className="font-bold text-xl text-gray-900 text-bold mb-2">
+                            Category 2
+                          </h3>
+                          {category2_navLinks.map((link, index) => {
+                            return (
+                              <li key={index} onClick={closeDropdownItems}>
+                                <Link
+                                  href={link.path}
+                                  className="text-base capitalize hover:bg-[#2557D6] hover:px-2 hover:py-1 hover:text-white"
+                                >
+                                  {link.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                        {/* <ul className="mb-4 space-y-4 md:mb-0 sm:block">
                           <h3 className="font-bold text-xl text-gray-900 text-bold mb-2">
                             Main Category 2
                           </h3>
@@ -199,7 +236,7 @@ function Navbar() {
                               category name
                             </Link>
                           </li>
-                        </ul>
+                        </ul> */}
                         <div className="mt-4 md:mt-0">
                           <h3 className="font-bold text-xl text-gray-900 text-bold mb-2">
                             Main Category 3
