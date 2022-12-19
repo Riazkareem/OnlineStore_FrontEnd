@@ -20,6 +20,10 @@ module.exports = {
       // animation: {
       //   spinslow: "spin 3s linear infinite",
       // },
+      // gridTemplateColumns: {
+      //   // Simple custome column grid
+      //   mygrid: "repeat(5, 1fr)",
+      // },
     },
   },
   plugins: [],
