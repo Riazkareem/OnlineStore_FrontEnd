@@ -11,7 +11,6 @@ function Index() {
       <FeaturedProduct />
       <Shopnow />
       <DeliveryInfo />
-      <hr />
       <Footer />
     </div>
   );

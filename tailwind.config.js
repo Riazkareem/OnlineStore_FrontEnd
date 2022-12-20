@@ -10,9 +10,9 @@ module.exports = {
       fontFamily: {
         nunito: ["Roboto", "sans-serif"],
       },
-      // colors: {
-      //   header_bg: "#1e2d7d",
-      // },
+      colors: {
+        bg_body: "#f3f5f6",
+      },
       screens: {
         mobile: "320px",
         // => @media (min-width: 640px) { ... }
@@ -20,10 +20,10 @@ module.exports = {
       // animation: {
       //   spinslow: "spin 3s linear infinite",
       // },
-      // gridTemplateColumns: {
-      //   // Simple custome column grid
-      //   mygrid: "repeat(5, 1fr)",
-      // },
+      gridTemplateColumns: {
+        // Simple custome column grid
+        mygrid: "grid-template-columns: fit-content(40%)",
+      },
     },
   },
   plugins: [],

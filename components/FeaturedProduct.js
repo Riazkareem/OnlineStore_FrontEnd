@@ -18,7 +18,7 @@ import "swiper/css";
 function FeaturedProduct() {
   SwiperCore.use([Autoplay]);
   return (
-    <section className="bg-[#f3f5f6]">
+    <section>
       <div className="container mx-auto">
         <h1 className="font-nunito font-bold text-2xl text-[#00205b] pt-10">
           Featured Products
