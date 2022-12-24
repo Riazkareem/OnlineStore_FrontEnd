@@ -3,22 +3,19 @@ import Link from "next/link";
 import Image from "next/image";
 import Modal from "./Modal";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useSelector, useDispatch } from "react-redux";
 
 function Header() {
+  const cartProducts = useSelector((state) => state.cartReducer);
+  const getTotalProduct = () => {
+    return cartProducts.reduce((currentValue, nextValue) => {
+      return currentValue + nextValue.quantity;
+    }, 0);
+  };
   // show login modal
   const [show, setShow] = useState(false);
   // close login model
   const closeModel = () => setShow(false);
-  // const router = useRouter();
-  // const isActive = (r) => {
-  //   if (r === router.pathname) {
-  //     return " active";
-  //   } else {
-  //     return "";
-  //   }
-  // };
-  // className={"nav-link text-white" + isActive("/cart")}
   return (
     <section className="bg-[#1e2d7d]">
       <Modal visible={show} closeModel={closeModel} />
@@ -28,9 +25,9 @@ function Header() {
             <Link href={"/"}>
               <Image
                 src={"/img/logo.webp"}
+                alt="logo"
                 width={200}
                 height={100}
-                alt="logo"
                 className="mobile:w-full mobile:z-50"
               />
             </Link>
@@ -45,14 +42,12 @@ function Header() {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    ></path>
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                   </svg>
                 </div>
                 <input
@@ -64,8 +59,7 @@ function Header() {
                 />
                 <button
                   type="submit"
-                  className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
+                  className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   Search
                 </button>
               </div>
@@ -81,8 +75,7 @@ function Header() {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="w-8 h-7"
-                  >
+                    className="w-8 h-7">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -90,7 +83,7 @@ function Header() {
                     />
                   </svg>
                   <div className="inline-flex absolute -top-4 -right-1 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-900">
-                    10
+                    {getTotalProduct()}
                   </div>
                 </button>
                 <span className="ml-1">Cart</span>
@@ -100,16 +93,14 @@ function Header() {
               <button
                 type="button"
                 className="text-white bg-[#2557D6] hover:bg-[#2557D6]/90 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium text-sm px-5 py-2.5 text-center inline-flex items-center rounded-none"
-                onClick={() => setShow(true)}
-              >
+                onClick={() => setShow(true)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="w-6 h-6"
-                >
+                  className="w-6 h-6">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

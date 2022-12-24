@@ -3,9 +3,9 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <section>
+    <section className="mt-8 bg-gray-100">
       <div className="container-fluid mx-auto">
-        <div className="grid grid-cols-4 gap-12 mb-10 px-5 max-[639px]:block">
+        <div className="grid grid-cols-4 gap-12 mb-10 px-5 max-[639px]:block py-8">
           <div className="col-span-2">
             <h1 className="text-[#00205b] font-bold text-lg font-nunito max-[639px]:mb-5 max-[639px]:text-lg uppercase">
               about us
@@ -42,16 +42,14 @@ function Footer() {
 
                 <button
                   type="button"
-                  className="text-white bg-[#2557D6] hover:bg-[#2557D6]/90 font-medium text-sm px-3 py-2 text-center inline-flex items-center mt-3"
-                >
+                  className="text-white bg-[#2557D6] hover:bg-[#2557D6]/90 font-medium text-sm px-3 py-2 text-center inline-flex items-center mt-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    className="w-6 h-6"
-                  >
+                    className="w-6 h-6">
                     <path
                       stroke-linecap="round"
                       d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25"

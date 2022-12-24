@@ -1,30 +1,42 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-function FeaturedProductItem() {
+import {
+  addToCartBtn,
+  addToCart,
+} from "../components/redux/actions/productActions";
+import { useDispatch } from "react-redux";
+
+function FeaturedProductItem(item) {
+  const { id, image, price, title } = item;
+  const dispatch = useDispatch();
+  const a = Object.values(item);
+
   return (
     <div>
       <div className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 shadow relative">
-        <div className="py-5">
-          <Link href={"/"}>
+        <div className="py-5 h-60">
+          <Link href={`/cart/${id}`}>
             <Image
-              src={"/img/p1.webp"}
-              alt="slider image"
+              src={image}
+              alt={title}
               // layout="fill" // required
-              width={150} // required
-              height={100} // required
+              width={130} // required
+              height={130} // required
               className="mx-auto hover:animate-pulse"
             />
           </Link>
         </div>
         <div className="px-5 mt-2">
-          <h3 className="text-md font-nunito font-medium text-[#00205b]">
-            CoComelon Deck The Halls JJ Doll - Toymaster Exclusive!
-          </h3>
+          <Link href={`/cart/${id}`}>
+            <h3 className="text-md font-nunito font-medium text-[#00205b]">
+              {title.substring(0, 18)}
+            </h3>
+          </Link>
         </div>
         <div className="price flex justify-center p-2">
           <div className="newPrice text-red-600 font-extrabold">
-            <span> $24.99</span>
+            <span> ${price}</span>
           </div>
           <div className="oldPrice ml-2 text-gray-500 line-through">
             <span>$29.99</span>
@@ -38,17 +50,15 @@ function FeaturedProductItem() {
         </div>
         <div className="cartBtn">
           <button
-            type="button"
-            className="text-white bg-[#2557D6] hover:bg-[#2557D6]/80  font-medium text-sm px-5 py-2.5 inline-flex items-center justify-center w-full"
-          >
+            onClick={() => dispatch(addToCart(a))}
+            className="text-white bg-[#2557D6] hover:bg-[#2557D6]/80  font-medium text-sm px-5 py-2.5 inline-flex items-center justify-center w-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
-            >
+              class="w-6 h-6">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -56,7 +66,7 @@ function FeaturedProductItem() {
               />
             </svg>
 
-            <span className="ml-2">Add to cart</span>
+            <span className="ml-2">Add to cart </span>
           </button>
         </div>
         <div className="save  inline">

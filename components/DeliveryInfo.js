@@ -53,8 +53,7 @@ function DeliveryInfo() {
                   <path
                     stroke="#00205b"
                     stroke-linecap="square"
-                    d="M23 7v10l-10 6-12-6V6l10-5z"
-                  ></path>
+                    d="M23 7v10l-10 6-12-6V6l10-5z"></path>
                 </g>
               </svg>
             </div>
@@ -73,8 +72,7 @@ function DeliveryInfo() {
                   <path
                     stroke="#00205b"
                     stroke-linecap="square"
-                    d="M3 12v11h16V12M21 9c0 2-1.1 3-2.5 3S16 10.9 16 9.5c0 1.4-1.1 2.5-2.5 2.5S11 10.9 11 9.5c0 1.4-1.1 2.5-2.5 2.5S6 10.9 6 9.5C6 10.9 4.9 12 3.5 12S1 11 1 9l4-8h12l4 8z"
-                  ></path>
+                    d="M3 12v11h16V12M21 9c0 2-1.1 3-2.5 3S16 10.9 16 9.5c0 1.4-1.1 2.5-2.5 2.5S11 10.9 11 9.5c0 1.4-1.1 2.5-2.5 2.5S6 10.9 6 9.5C6 10.9 4.9 12 3.5 12S1 11 1 9l4-8h12l4 8z"></path>
                 </g>
               </svg>{" "}
             </div>
